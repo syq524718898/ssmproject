@@ -37,12 +37,10 @@
                 location.href="${pageContext.request.contextPath}/account/delAccount?id="+id;
             }
         }
-
         window.onload = function(){
             //给删除选中按钮添加单击事件
             document.getElementById("delSelected").onclick = function(){
                 if(confirm("您确定要删除选中条目吗？")){
-
                     var flag = false;
                     //判断是否有选中条目
                     var cbs = document.getElementsByName("aid");
@@ -53,7 +51,6 @@
                             break;
                         }
                     }
-
                     if(flag){//有条目被选中
                         //表单提交
                         document.getElementById("form").submit();
@@ -70,9 +67,7 @@
                     cbs[i].checked = this.checked;
                 }
             }
-
         }
-
 
     </script>
 </head>
@@ -85,17 +80,14 @@
                 <label for="exampleInputName2">姓名</label>
                 <input type="text" name="name" value="${condion}" class="form-control" id="exampleInputName2" >
             </div>
-
             <button type="submit" class="btn btn-default">查询</button>
         </form>
 
     </div>
 
     <div style="float: right;margin: 5px;">
-
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/account/add">添加账户</a>
         <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">删除选中</a>
-
     </div>
     <form id="form" action="${pageContext.request.contextPath}/account/delSelect" method="post">
         <table border="1" class="table table-bordered table-hover">
@@ -106,7 +98,6 @@
                 <th>账户余额</th>
                 <th>操作</th>
             </tr>
-
             <c:forEach items="${pb.list}" var="account" varStatus="s">
                 <tr>
                     <td><input type="checkbox" name="aid" value="${account.id}"></td>
@@ -117,7 +108,6 @@
                         <a class="btn btn-default btn-sm" href="javascript:deleteUser(${account.id});">删除</a></td>
                 </tr>
             </c:forEach>
-
         </table>
     </form>
     <div>
@@ -137,20 +127,14 @@
                         </a>
                     </li>
                 </c:if>
-
-
                 <c:forEach begin="1" end="${pb.totalPage}" var="i" >
-
-
                     <c:if test="${pb.currentPage == i}">
                         <li class="active"><a href="${pageContext.request.contextPath}/account/findAll?page=${i}&name=${condion}">${i}</a></li>
                     </c:if>
                     <c:if test="${pb.currentPage != i}">
                         <li><a href="${pageContext.request.contextPath}/account/findAll?page=${i}&name=${condion}">${i}</a></li>
                     </c:if>
-
                 </c:forEach>
-
                 <c:if test="${pb.currentPage == pb.totalPage}">
                     <li class="disabled">
                         <a href="javascript:void(0);" aria-label="Next">
@@ -165,17 +149,12 @@
                         </a>
                     </li>
                 </c:if>
-
                 <span style="font-size: 25px;margin-left: 5px;">
                     共${pb.totalCount}条记录，共${pb.totalPage}页
                 </span>
-
             </ul>
         </nav>
-
     </div>
-
 </div>
-
 </body>
 </html>
