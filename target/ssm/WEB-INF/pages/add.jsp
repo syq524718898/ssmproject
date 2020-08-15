@@ -17,7 +17,7 @@
     <title>添加用户</title>
 
     <!-- 1. 导入CSS的全局样式 -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
     <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
     <script src="../../js/jquery-2.1.0.min.js"></script>
     <!-- 3. 导入bootstrap的js文件 -->

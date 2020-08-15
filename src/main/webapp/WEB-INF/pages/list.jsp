@@ -30,6 +30,12 @@
     </style>
 
     <script>
+        function get_number(currentPage,rows,s)
+        {
+            var td=document.createElement("td");
+            td.innerHTML = (currentPage-1)*rows+s;
+            document.getElementsByClassName("contextbody")[s-1].appendChild(td);
+        }
         function deleteUser(id){
             //用户安全提示
             if(confirm("您确定要删除吗？")){
@@ -99,9 +105,9 @@
                 <th>操作</th>
             </tr>
             <c:forEach items="${pb.list}" var="account" varStatus="s">
-                <tr>
+                <tr class="contextbody">
                     <td><input type="checkbox" name="aid" value="${account.id}"></td>
-                    <td>${s.count}</td>
+                    <script>get_number(${pb.currentPage},${pb.rows},${s.count})</script>
                     <td>${account.name}</td>
                     <td>${account.money}</td>
                     <td><a class="btn btn-default btn-sm" href="${pageContext.request.contextPath}/account/update?id=${account.id}">修改</a>&nbsp;
