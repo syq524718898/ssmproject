@@ -28,6 +28,7 @@ public class AccountController {
     public String save(Account account)
     {
         accountService.saveAccount(account);
+        System.out.println(account);
         return "redirect:/account/findAll";
     }
 
